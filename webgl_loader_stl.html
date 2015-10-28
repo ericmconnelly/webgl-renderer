@@ -29,37 +29,19 @@
 
     <script>
 
-      var container, stats;
-
       var controls;
-
       var view;
-
       var dbClick = false;
-
-      var particleMaterial;
-
       var intersects;
-
       var camera, cameraTarget, scene, renderer;
-
       var mouse,raycaster,light1,light2;
-
       var w,h;
-
       var arr;
-
-      var dotGeometry;
-
       var lineGeometry;
       var arrPoint = [];
-
-      var dotMaterial;
       var projector;
       var file;
-
       var lastPoint = null;
-
       init();
 
       function init() {
@@ -94,9 +76,6 @@
         particleMaterial = new THREE.MeshBasicMaterial({ color: 0xCCFF00 });
         particleMaterial.side = THREE.DoubleSide;
 
-        dotGeometry = new THREE.Geometry();
-        dotMaterial = new THREE.PointCloudMaterial( { size: 100, sizeAttenuation: false } );
-
         // Binary file
         var loader = new THREE.STLLoader();
         loader.load(file, function ( geometry ) {
@@ -126,7 +105,7 @@
       //draw a line between 2 points
       function startDraw(event){
         var geometry = new THREE.Geometry();
-        var material = new THREE.PointsMaterial( { color: 0x33FFFF, size: 4 } );
+        var material = new THREE.PointsMaterial( { color: 0x33FFFF, size: 2 } );
         lastPoint = get3dPointZAxis(event);
         geometry.vertices.push(lastPoint);
 
